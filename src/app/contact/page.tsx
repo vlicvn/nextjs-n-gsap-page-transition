@@ -1,4 +1,4 @@
-export default function Home() {
+export default function Contact() {
   return (
     <main
       className="
@@ -17,14 +17,14 @@ export default function Home() {
           text-center
           font-sans
           font-normal
-          text-[clamp(3rem,15vw,10rem)]
+          text-[clamp(2.5rem,12vw,10rem)]
           uppercase
-          leading-1
+          leading-[1.05]
           tracking-[clamp(0.02rem,0.3vw,0.3rem)]
           text-white
         "
       >
-        HOME
+        CONTACT
       </h1>
     </main>
   );

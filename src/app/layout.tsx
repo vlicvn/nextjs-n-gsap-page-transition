@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Boldonse, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import PageTransition from "@/components/PageTransition";
+import Navbar from "@/components/Navbar";
+
+const boldonse = Boldonse({
+  weight: "400",
   subsets: ["latin"],
+  variable: "--font-boldonse",
+  adjustFontFallback: false,
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexMono = IBM_Plex_Mono({
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
+  variable: "--font-plex-mono",
 });
 
 export const metadata: Metadata = {
@@ -17,13 +24,20 @@ export const metadata: Metadata = {
   description: "A simple page transition implementation with GSAP and Next.js",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${boldonse.variable} ${plexMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        <PageTransition />
+
+        {children}
+      </body>
     </html>
   );
 }
